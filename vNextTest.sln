@@ -7,8 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{55E141ED-573
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E67B0AA2-D03B-4B4B-ACD0-276E9E736EC2}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		Dockerfile = Dockerfile
 		global.json = global.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "vNextTest", "src\vNextTest\vNextTest.xproj", "{CB937880-6060-49EA-9712-DAB3F445CB8E}"
