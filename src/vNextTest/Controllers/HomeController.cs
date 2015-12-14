@@ -1,13 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using System.Data.SqlClient;
 
 namespace vNextTest.Controllers
 {
     public class HomeController : Controller
     {
+        private bool SqlTest()
+        {
+            try
+            {
+                string connectionString = "Data Source = my - data - source; Initial Catalog = mydataBase; MultipleActiveResultSets = False; User Id = myUserName; Password = myPassword; ";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    return conn.State == System.Data.ConnectionState.Open;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -15,7 +32,7 @@ namespace vNextTest.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = string.Format("The following statement \"sql works here\" is {0}.", SqlTest());
 
             return View();
         }
